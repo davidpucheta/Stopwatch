@@ -10,7 +10,15 @@ namespace Stopwatch
           
             stopWatch.Start();
             stopWatch.Stop();
+            Console.WriteLine(stopWatch.ElapsedTime.TotalMilliseconds);
 
+            stopWatch.Start();
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.ElapsedTime.TotalMilliseconds);
+
+            stopWatch.Start();
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.ElapsedTime.TotalMilliseconds);
                 
         }
     }

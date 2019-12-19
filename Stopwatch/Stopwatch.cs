@@ -5,18 +5,22 @@ namespace Stopwatch
     class Stopwatch
     {
         private bool _isRunning;
-        public DateTime Time { get; private set; }       
+        private DateTime _startTime;
+
+        public TimeSpan ElapsedTime { get; private set; }       
+        
         public Stopwatch()
         {
-            Time = DateTime.MinValue;
+            _startTime = DateTime.MinValue;
             _isRunning = false;
         }
-
+        
         public void Start()
         {
             if (_isRunning == false)
             {
-                Time = Time == DateTime.MinValue? DateTime.Now : Time;
+                _startTime = DateTime.Now;
+                _isRunning = true;
             }
             else
             {
@@ -26,8 +30,7 @@ namespace Stopwatch
 
         public void Stop()
         {
-            TimeSpan timeSpan = DateTime.Now - Time;
-            Console.WriteLine($"Running time(ms): {timeSpan.TotalMilliseconds}");
+            ElapsedTime = ElapsedTime.Add(DateTime.Now - _startTime);
             _isRunning = false;
         }
 
